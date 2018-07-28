@@ -1,0 +1,16 @@
+{
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "connect-multiparty": "^2.1.1",
+    "cors": "^2.8.4",
+    "helmet": "^3.12.2",
+    "moment": "^2.22.2",
+    "morgan": "^1.9.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4",
+    "request": "^2.87.0"
+  }
+}
