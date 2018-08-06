@@ -28,12 +28,13 @@ module.exports = {
             return res.status(404).send('Promocode ' + name + ' not found')
         }
 
-        promocodeService.validateDiscount(promocode, arguments, (err, result) => {
-            if(err) {
+        promocodeService.validateDiscount(promocode, arguments)
+            .then(response => {
+                res.send(response)
+                next()
+            })
+            .catch(err => {
                 res.status(500).send(err)
-            }
-            res.send(result)
-            next()
-        })
+            })
     }
 }

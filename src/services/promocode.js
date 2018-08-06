@@ -3,12 +3,9 @@ const moment = require('moment')
 
 module.exports = {
     
-    validateDiscount: (promocode, arguments, callback) => {
-        weatherClient.get(arguments.meteo.town, (err, weather) => {
-            if(err) {
-                return res.send(err)
-            }
-
+    validateDiscount: (promocode, arguments) => {
+        return weatherClient.get(arguments.meteo.town)
+          .then(weather => {
             const validateAll = (restrictions) => {
                 return restrictions.every(restriction => evaluateNode(restriction))
             }
@@ -71,7 +68,7 @@ module.exports = {
 
             result = validateAll(promocode.restrictions)
 
-            const response = result ? {
+            return result ? {
                 promocode_name: promocode.name, 
                 status: 'accecpted',
                 avantage: promocode.avantage
@@ -80,8 +77,6 @@ module.exports = {
                 status: 'denied',
                 reasons: errors
             }
-    
-            callback(err, response)
         })
     }
 }
