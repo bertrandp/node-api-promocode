@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bluebird": "^3.5.1",
     "connect-multiparty": "^2.1.1",
     "cors": "^2.8.4",
     "helmet": "^3.12.2",
